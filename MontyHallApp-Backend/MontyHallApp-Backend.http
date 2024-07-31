@@ -1,0 +1,6 @@
+@MontyHallApp_Backend_HostAddress = http://localhost:5230
+
+GET {{MontyHallApp_Backend_HostAddress}}/
+Accept: application/json
+
+###

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content{
+  padding-top: 10px;
+}
+
+@media(min-width:768px){
+  .form {
+      padding-left: 10px;
+    }
+}

@@ -1,0 +1,39 @@
+<div class="container">
+  <mat-card appearance="outlined">
+    <mat-card-header>Monty Hall Simulator</mat-card-header>
+    <mat-card-content class="content">
+      <form [formGroup]="simulationForm">
+        <mat-form-field>
+          <mat-label>Number of Games</mat-label>
+          <input matInput placeholder="Number of Games" formControlName="numSimulations" type="number" />
+          <mat-error *ngIf="simulationForm.get('numSimulations').hasError('required')">
+            Number of games is required.
+          </mat-error>
+          <mat-error *ngIf="simulationForm.get('numSimulations').hasError('min')">
+            Should be greater than 0.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form">
+          <mat-label>Switch Door</mat-label>
+          <mat-select formControlName="switchChoice">
+            <mat-option [value]="true">Yes</mat-option>
+            <mat-option [value]="false">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-content>
+      <button mat-flat-button color="primary" (click)="simulate()">
+        Simulate
+      </button>
+    </mat-card-content>
+    <mat-card-content>
+      <div *ngIf="result">
+        <p>Number of Games: {{ result.numberOfGames }}</p>
+        <p>Wins: {{ result.winCount }}</p>
+        <p>Win Rate: {{ result.winRate | percent }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
